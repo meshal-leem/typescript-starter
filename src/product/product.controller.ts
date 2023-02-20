@@ -9,13 +9,14 @@ export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Get()
-  async getAllBooks(): Promise<Product[]> {
+  @UseGuards(AuthGuard())
+  async getAllProducts(): Promise<Product[]> {
     return this.productService.findAll();
   }
 
   @Post()
   @UseGuards(AuthGuard())
-  async createBook(
+  async createProducts(
     @Body()
     product: CreateProductDto,
   ): Promise<Product> {
@@ -23,6 +24,7 @@ export class ProductController {
   }
 
   @Get(':id')
+  @UseGuards(AuthGuard())
   async getProduct(
     @Param('id')
     id: string,

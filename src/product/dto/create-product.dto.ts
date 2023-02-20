@@ -8,4 +8,14 @@ export class CreateProductDto {
   readonly description: string;
   @IsEmpty({ message: 'You cannot pass user id' })
   readonly user: User;
+  @IsEmpty()
+  readonly url_of: String;
+  @IsEmpty()
+  readonly url_od: String;
+  @IsEmpty()
+  readonly url_os: String;
+  @IsEmpty()
+  readonly url_ob: String;
+  @IsEmpty()
+  readonly url_video: String;
 }
